@@ -140,6 +140,7 @@
   font-weight: 600; cursor: pointer; transition: all 0.2s; letter-spacing: 0.01em;
 }
 .generateBtn:hover { background: var(--accent); }
+<<<<<<< HEAD
 
 /* TC2b consolidated quarter */
 .consolidatedRow {
@@ -198,3 +199,5 @@
   border-radius: var(--radius-md, 10px);
   margin-bottom: 10px;
 }
+=======
+>>>>>>> 0f3be879a29130b815e33869fdf0519548523dfa

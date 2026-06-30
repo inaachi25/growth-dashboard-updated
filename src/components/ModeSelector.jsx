@@ -33,7 +33,11 @@ function MonthChip({ month, data, onClick }) {
   )
 }
 
+<<<<<<< HEAD
 function QuarterSection({ q, year, data, onMonthly, onQuarterly, onQuarterReport }) {
+=======
+function QuarterSection({ q, year, data, onMonthly, onQuarterly }) {
+>>>>>>> 0f3be879a29130b815e33869fdf0519548523dfa
   const quarterKey = makeQuarterKey(q, year)
   const monthKeys = getMonthsForQuarter(q, year)
   const status = quarterStatus(data.monthly, monthKeys)
@@ -59,8 +63,11 @@ function QuarterSection({ q, year, data, onMonthly, onQuarterly, onQuarterReport
           <MonthChip key={m} month={m} data={data} onClick={onMonthly} />
         ))}
       </div>
+<<<<<<< HEAD
 
       {/* When no monthly entries: allow direct quarterly survey */}
+=======
+>>>>>>> 0f3be879a29130b815e33869fdf0519548523dfa
       {status === 'no_monthly' && (
         <button
           className={`${styles.altBtn} ${qDone ? styles.altDone : ''}`}
@@ -69,6 +76,7 @@ function QuarterSection({ q, year, data, onMonthly, onQuarterly, onQuarterReport
           {qDone ? '✓ Quarterly survey done' : 'Fill quarterly survey directly →'}
         </button>
       )}
+<<<<<<< HEAD
 
       {/* When all months are complete: show consolidated quarter badge + report button */}
       {status === 'complete' && (
@@ -91,6 +99,8 @@ function QuarterSection({ q, year, data, onMonthly, onQuarterly, onQuarterReport
           Fill all 3 months to auto-consolidate this quarter.
         </p>
       )}
+=======
+>>>>>>> 0f3be879a29130b815e33869fdf0519548523dfa
     </div>
   )
 }
@@ -115,6 +125,7 @@ function ReportPicker({ data, onGenerate }) {
   const keyB = getPeriodKey(modeB, qB, monthB, yearB)
 
   function hasData(key, mode) {
+<<<<<<< HEAD
     if (mode === 'quarterly') {
       // Direct quarterly survey entry counts
       if (susScore(data.quarterly[key]?.answers) !== null) return true
@@ -141,12 +152,23 @@ function ReportPicker({ data, onGenerate }) {
   const bHasData = hasData(keyB, modeB)
   const aHasData = hasData(keyA, modeA)
   const canGenerate = bHasData // at minimum Period B must have data
+=======
+    if (mode === 'quarterly') return susScore(data.quarterly[key]?.answers) !== null
+    return susScore(data.monthly[key]?.answers) !== null
+  }
+
+  const canGenerate = true // always allow; dashboard shows empty state if no data
+>>>>>>> 0f3be879a29130b815e33869fdf0519548523dfa
 
   return (
     <div className={styles.reportPicker}>
       <h3 className={styles.rpTitle}>Generate Report</h3>
       <p className={styles.rpDesc}>
+<<<<<<< HEAD
         Compare any two periods. Period B must have data. Period A is optional (used as baseline).
+=======
+        Compare any two periods. Select a previous month/quarter and a current one to see your growth.
+>>>>>>> 0f3be879a29130b815e33869fdf0519548523dfa
       </p>
 
       <div className={styles.rpGrid}>
@@ -179,7 +201,11 @@ function ReportPicker({ data, onGenerate }) {
           <div className={styles.rpKey}>
             {keyA}
             {hasData(keyA, modeA)
+<<<<<<< HEAD
               ? <span className={styles.rpHasData}> ✓ {dataSourceLabel(keyA, modeA)}</span>
+=======
+              ? <span className={styles.rpHasData}> ✓ has data</span>
+>>>>>>> 0f3be879a29130b815e33869fdf0519548523dfa
               : <span className={styles.rpNoData}> · no data yet</span>
             }
           </div>
@@ -216,13 +242,18 @@ function ReportPicker({ data, onGenerate }) {
           <div className={styles.rpKey}>
             {keyB}
             {hasData(keyB, modeB)
+<<<<<<< HEAD
               ? <span className={styles.rpHasData}> ✓ {dataSourceLabel(keyB, modeB)}</span>
+=======
+              ? <span className={styles.rpHasData}> ✓ has data</span>
+>>>>>>> 0f3be879a29130b815e33869fdf0519548523dfa
               : <span className={styles.rpNoData}> · no data yet</span>
             }
           </div>
         </div>
       </div>
 
+<<<<<<< HEAD
       {!canGenerate && (
         <p className={styles.rpBlockedMsg}>
           ⚠ Period B ({keyB}) has no data yet. Fill in that period's survey first.
@@ -232,20 +263,33 @@ function ReportPicker({ data, onGenerate }) {
         className={`${styles.generateBtn} ${!canGenerate ? styles.generateBtnDisabled : ''}`}
         disabled={!canGenerate}
         onClick={() => canGenerate && onGenerate(
+=======
+      <button
+        className={styles.generateBtn}
+        onClick={() => onGenerate(
+>>>>>>> 0f3be879a29130b815e33869fdf0519548523dfa
           { key: keyA, isMonthly: modeA === 'monthly' },
           { key: keyB, isMonthly: modeB === 'monthly' }
         )}
       >
+<<<<<<< HEAD
         {canGenerate
           ? `Generate Report: ${aHasData ? keyA + ' → ' : ''}${keyB}`
           : 'Complete Period B survey to generate report'
         }
+=======
+        Generate Report: {keyA} → {keyB}
+>>>>>>> 0f3be879a29130b815e33869fdf0519548523dfa
       </button>
     </div>
   )
 }
 
+<<<<<<< HEAD
 export default function ModeSelector({ data, onSelectMonthly, onSelectQuarterly, onDashboard, onQuarterReport }) {
+=======
+export default function ModeSelector({ data, onSelectMonthly, onSelectQuarterly, onDashboard }) {
+>>>>>>> 0f3be879a29130b815e33869fdf0519548523dfa
   const [selectedYear, setSelectedYear] = useState(CURRENT_YEAR)
 
   return (
@@ -284,7 +328,10 @@ export default function ModeSelector({ data, onSelectMonthly, onSelectQuarterly,
             data={data}
             onMonthly={onSelectMonthly}
             onQuarterly={onSelectQuarterly}
+<<<<<<< HEAD
             onQuarterReport={onQuarterReport}
+=======
+>>>>>>> 0f3be879a29130b815e33869fdf0519548523dfa
           />
         ))}
       </div>

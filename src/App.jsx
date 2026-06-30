@@ -115,12 +115,15 @@ export default function App() {
             data={data}
             onSelectMonthly={(month) => switchView('input', 'monthly', month)}
             onSelectQuarterly={(quarter) => switchView('input', 'quarterly', quarter)}
+<<<<<<< HEAD
             onQuarterReport={(quarterKey) => {
               // View the consolidated quarter as Period B (no baseline)
               setReportPeriodA(null)
               setReportPeriodB({ key: quarterKey, isMonthly: false })
               switchView('dashboard')
             }}
+=======
+>>>>>>> 0f3be879a29130b815e33869fdf0519548523dfa
             onDashboard={(pA, pB) => {
               setReportPeriodA(pA)
               setReportPeriodB(pB)
@@ -139,12 +142,16 @@ export default function App() {
             onAnswer={(i, v) => updateAnswer(activePeriod, isMonthly, i, v)}
             onActivity={(field, val) => updateActivity(activePeriod, isMonthly, field, val)}
             onBack={() => switchView('home')}
+<<<<<<< HEAD
             onDashboard={() => {
               // Report for the current period: show it as Period B (no comparison yet)
               setReportPeriodA(null)
               setReportPeriodB({ key: activePeriod, isMonthly })
               switchView('dashboard')
             }}
+=======
+            onDashboard={() => switchView('dashboard')}
+>>>>>>> 0f3be879a29130b815e33869fdf0519548523dfa
           />
         )}
 
