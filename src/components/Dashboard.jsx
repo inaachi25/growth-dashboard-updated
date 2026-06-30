@@ -4,7 +4,7 @@ import {
   CategoryScale, LinearScale, BarElement, LineElement,
   PointElement, Title, Tooltip, Legend, Filler
 } from 'chart.js'
-import { Bar } from 'react-chartjs-2'
+import { Bar, Chart } from 'react-chartjs-2'
 import {
   susScore, growthScore, scoreLabel, QUESTIONS,
   THEME_COLORS, generateInsights, analyzeGrowthQuality,
@@ -14,8 +14,17 @@ import {
 import styles from './Dashboard.module.css'
 
 ChartJS.register(
-  CategoryScale, LinearScale, BarElement, LineElement,
-  PointElement, Title, Tooltip, Legend, Filler
+  CategoryScale,
+  LinearScale,
+  BarController,
+  LineController,
+  BarElement,
+  LineElement,
+  PointElement,
+  Title,
+  Tooltip,
+  Legend,
+  Filler
 )
 
 function InsightCard({ title, value, sub, direction, delay }) {
@@ -382,7 +391,13 @@ export default function Dashboard({ periodA, periodB, data, getQuarterData, onBa
             <span className={styles.legendItem}><span className={styles.legendLine} style={{background:'#C4622D'}}/>Self-score</span>
           </div>
         </div>
-        <div className={styles.chartWrap} style={{height:'220px'}}><Bar data={comboData} options={comboOpts} /></div>
+        <div className={styles.chartWrap} style={{ height: '220px' }}>
+          <Chart
+            type="bar"
+            data={comboData}
+            options={comboOpts}
+          />
+        </div>
       </div>
 
       {/* Question breakdown */}
