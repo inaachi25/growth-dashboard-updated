@@ -1,0 +1,200 @@
+/* ── Wrap ─────────────────────────────────────────────────────── */
+.wrap {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 0 1rem 4rem;
+  animation: fadeUp 0.45s ease both;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Hero ─────────────────────────────────────────────────────── */
+.hero { text-align: center; padding: 2.5rem 1rem 2rem; }
+.heroEyebrow {
+  font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--ink-faint); margin-bottom: 0.5rem; font-family: var(--font-mono);
+}
+.heroTitle {
+  font-size: clamp(1.9rem, 5vw, 2.8rem); font-family: var(--font-display);
+  font-weight: 700; color: var(--ink); line-height: 1.15; margin: 0 0 0.75rem;
+}
+.heroTitle em { color: var(--accent); font-style: italic; }
+.heroDesc { color: var(--ink-faint); font-size: 0.95rem; max-width: 520px; margin: 0 auto; line-height: 1.6; }
+
+/* ── Year Selector ────────────────────────────────────────────── */
+.yearSelector {
+  display: flex; align-items: center; gap: 0.75rem;
+  margin-bottom: 1.5rem; flex-wrap: wrap;
+}
+.yearLabel {
+  font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1em;
+  color: var(--ink-faint); font-family: var(--font-mono);
+}
+.yearBtns { display: flex; gap: 0.4rem; flex-wrap: wrap; }
+.yearBtn {
+  padding: 0.35rem 0.85rem; border: 1.5px solid var(--border);
+  border-radius: 6px; font-size: 0.85rem; font-family: var(--font-mono);
+  background: var(--cream); color: var(--ink); cursor: pointer;
+  transition: all 0.15s;
+}
+.yearBtn:hover { border-color: var(--accent); color: var(--accent); }
+.yearActive {
+  background: var(--accent); border-color: var(--accent);
+  color: #fff !important;
+}
+
+/* ── Quarter Grid ─────────────────────────────────────────────── */
+.quarterGrid {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem;
+  margin-bottom: 2rem;
+}
+@media (max-width: 580px) { .quarterGrid { grid-template-columns: 1fr; } }
+
+.quarterSection {
+  background: var(--paper); border: 1px solid var(--border);
+  border-radius: 12px; padding: 1rem 1.1rem; display: flex;
+  flex-direction: column; gap: 0.65rem;
+}
+.qSectionHead { display: flex; justify-content: space-between; align-items: center; }
+.qLabel { font-size: 1rem; font-weight: 700; color: var(--ink); font-family: var(--font-display); }
+.qStatusDot { font-size: 0.72rem; font-family: var(--font-mono); }
+
+.monthRow { display: flex; gap: 0.4rem; }
+.monthChip {
+  flex: 1; display: flex; flex-direction: column; align-items: center;
+  gap: 0.2rem; padding: 0.45rem 0.3rem; border: 1.5px solid var(--border);
+  border-radius: 8px; background: var(--cream); cursor: pointer;
+  transition: all 0.15s; font-size: 0.78rem; color: var(--ink-faint);
+}
+.monthChip:hover { border-color: var(--accent); color: var(--accent); }
+.chipDone { border-color: var(--teal); background: color-mix(in srgb, var(--teal) 8%, transparent); }
+.chipMonth { font-weight: 600; color: var(--ink); font-size: 0.8rem; }
+.chipStatus { display: flex; align-items: center; gap: 0.3rem; font-size: 0.68rem; color: var(--teal); font-family: var(--font-mono); }
+.chipDot { width: 5px; height: 5px; border-radius: 50%; background: var(--teal); }
+.chipStatusPending { font-size: 0.7rem; color: var(--ink-faint); }
+
+.altBtn {
+  font-size: 0.78rem; padding: 0.4rem 0.75rem; border: 1.5px dashed var(--border);
+  border-radius: 7px; background: transparent; color: var(--ink-faint);
+  cursor: pointer; text-align: left; transition: all 0.15s; line-height: 1.4;
+}
+.altBtn:hover { border-color: var(--accent); color: var(--accent); }
+.altDone { border-style: solid; border-color: var(--teal); color: var(--teal); }
+
+/* ── Report Picker ────────────────────────────────────────────── */
+.reportPicker {
+  background: var(--paper); border: 1.5px solid var(--border);
+  border-radius: 14px; padding: 1.5rem; margin-top: 1rem;
+}
+.rpTitle {
+  font-size: 1.05rem; font-weight: 700; font-family: var(--font-display);
+  color: var(--ink); margin: 0 0 0.25rem;
+}
+.rpDesc { font-size: 0.85rem; color: var(--ink-faint); margin: 0 0 1.25rem; line-height: 1.5; }
+
+.rpGrid {
+  display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;
+  margin-bottom: 1.25rem;
+}
+.rpPeriod {
+  flex: 1; min-width: 200px; background: var(--cream); border: 1px solid var(--border);
+  border-radius: 10px; padding: 1rem;
+}
+.rpPeriodLabel {
+  font-size: 0.78rem; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.09em; color: var(--ink); margin-bottom: 0.65rem;
+  font-family: var(--font-mono);
+}
+.rpLabelSub { font-weight: 400; text-transform: none; letter-spacing: 0; color: var(--ink-faint); }
+.rpControls { display: flex; flex-direction: column; gap: 0.45rem; margin-bottom: 0.65rem; }
+.rpSelect {
+  padding: 0.35rem 0.5rem; border: 1.5px solid var(--border); border-radius: 7px;
+  background: var(--paper); color: var(--ink); font-family: var(--font-mono);
+  font-size: 0.82rem; cursor: pointer; width: 100%;
+}
+.rpSelect:focus { outline: none; border-color: var(--accent); }
+
+.rpModeToggle { display: flex; gap: 0; border: 1.5px solid var(--border); border-radius: 7px; overflow: hidden; }
+.rpModeBtn {
+  flex: 1; padding: 0.3rem 0; font-size: 0.78rem; font-family: var(--font-mono);
+  border: none; background: var(--paper); color: var(--ink-faint); cursor: pointer;
+  transition: all 0.15s;
+}
+.rpModeActive { background: var(--accent); color: #fff; }
+
+.rpKey {
+  font-size: 0.78rem; font-family: var(--font-mono); color: var(--ink);
+  padding-top: 0.4rem; border-top: 1px solid var(--border);
+}
+.rpHasData { color: var(--teal); }
+.rpNoData { color: var(--ink-faint); }
+
+.rpArrow { font-size: 1.5rem; color: var(--ink-faint); flex-shrink: 0; }
+
+.generateBtn {
+  width: 100%; padding: 0.85rem 1.5rem; background: var(--ink);
+  color: var(--cream); border: none; border-radius: 10px; font-size: 0.9rem;
+  font-weight: 600; cursor: pointer; transition: all 0.2s; letter-spacing: 0.01em;
+}
+.generateBtn:hover { background: var(--accent); }
+
+/* TC2b consolidated quarter */
+.consolidatedRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 8px;
+  padding: 8px 10px;
+  background: var(--teal-pale, #D0EDE8);
+  border-radius: var(--radius-md, 10px);
+  flex-wrap: wrap;
+}
+
+.consolidatedBadge {
+  font-size: 12px;
+  color: var(--teal, #2D7A6B);
+  font-family: var(--font-mono, monospace);
+}
+
+.quarterReportBtn {
+  padding: 6px 14px;
+  border: 1.5px solid var(--teal, #2D7A6B);
+  border-radius: 99px;
+  background: transparent;
+  font-size: 12px;
+  color: var(--teal, #2D7A6B);
+  cursor: pointer;
+  transition: all 0.15s;
+  white-space: nowrap;
+}
+
+.quarterReportBtn:hover {
+  background: var(--teal, #2D7A6B);
+  color: #fff;
+}
+
+.partialHint {
+  font-size: 11px;
+  color: var(--gold, #B8860B);
+  margin-top: 6px;
+  font-family: var(--font-mono, monospace);
+}
+
+/* TC2a generate blocked */
+.generateBtnDisabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.rpBlockedMsg {
+  font-size: 13px;
+  color: var(--accent, #C4622D);
+  background: var(--accent-pale, #F5DBCF);
+  padding: 8px 12px;
+  border-radius: var(--radius-md, 10px);
+  margin-bottom: 10px;
+}
